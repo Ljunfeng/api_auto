@@ -1,0 +1,305 @@
+[2020-07-04 19:22:32,541][read_data.py 36][INFO]: 加载 D:\Git_Project\api_auto\small_FrontalGate\config\setting.ini 文件......
+[2020-07-04 19:22:32,776][read_data.py 36][INFO]: 加载 D:\Git_Project\api_auto\small_FrontalGate\config\setting.ini 文件......
+[2020-07-04 19:22:32,848][read_data.py 22][INFO]: 加载 D:\Git_Project\api_auto\small_FrontalGate\test_data\base_data.yml 文件......
+[2020-07-04 19:22:32,850][read_data.py 25][INFO]: 读到数据 ==>>  {'init_admin_user': {'username': '小锋test', 'password': '123456'}, 'init_sql': {'insert_delete_user': ["INSERT INTO user(username, password, role, sex, telephone, address) VALUES('测试test', '123456', '1', '1', '13488888888', '北京市海淀区')", "DELETE FROM user WHERE username = '测试test'"], 'delete_register_user': "DELETE FROM user WHERE username = '测试test'", 'update_user_telephone': "UPDATE user SET telephone = '13500010004' WHERE id = 4"}} 
+[2020-07-04 19:22:32,851][read_data.py 22][INFO]: 加载 D:\Git_Project\api_auto\small_FrontalGate\test_data\api_test_data.yml 文件......
+[2020-07-04 19:22:32,857][read_data.py 25][INFO]: 读到数据 ==>>  {'test_get_all_user_info': [[True, 0, '查询成功']], 'test_get_get_one_user_info': [['wintest4', True, 0, '查询成功'], ['wintest1111', False, '1004', '查不到相关用户']], 'test_register_user': [['测试test', '123456', '13599999999', '1', '深圳市宝安区', True, 0, '注册成功'], ['测试test', '123456', '13599999999', '3', '深圳市宝安区', False, 2003, '输入的性别只能是 0(男) 或 1(女)'], ['wintest4', '123456', '13599999999', '1', '深圳市宝安区', False, 2002, '用户名已存在']], 'test_login_user': [['wintest', '123456', True, 0, '登录成功'], ['测试test', '123456', False, 1003, '用户名不存在']], 'test_update_user': [[4, '123456', '13500010014', '1', '深圳市宝安区', True, 0, '修改用户信息成功'], [4, '123456', '1350001001', '1', '深圳市宝安区', False, 4008, '手机号格式不正确'], [111, '123456', '13500010014', '1', '深圳市宝安区', False, 4005, '用户ID不存在']], 'test_delete_user': [['测试test', True, 0, '删除用户信息成功'], ['wintest3', False, 3006, '该用户不允许删除']]} 
+[2020-07-04 19:22:32,857][read_data.py 22][INFO]: 加载 D:\Git_Project\api_auto\small_FrontalGate\test_data\scenario_test_data.yml 文件......
+[2020-07-04 19:22:32,867][read_data.py 25][INFO]: 读到数据 ==>>  {'test_user_register_login_list': {'username': '测试test', 'password': '123456', 'telephone': '13599999999', 'sex': '1', 'address': '深圳市宝安区', 'except_result': True, 'except_code': 0, 'except_msg': '查询成功'}, 'test_user_repeat_register': {'username': '测试test', 'password': '123456', 'telephone': '13599999999', 'sex': '1', 'address': '深圳市宝安区', 'except_result': False, 'except_code': 2002, 'except_msg': '用户名已存在，注册失败'}, 'test_user_register_login_update_success': {'register': {'username': '测试test', 'password': '123456', 'telephone': '13599999999', 'sex': '1', 'address': '深圳市宝安区'}, 'login': {'admin_user': 'wintest', 'admin_pwd': '123456'}, 'update': {'new_password': '123456', 'new_telephone': '13599999998', 'new_sex': '1', 'new_address': '深圳市坪山区'}, 'except_result': True, 'except_code': 0, 'except_msg': '修改用户信息成功'}, 'test_user_register_login_update_fail': {'register': {'username': '测试test', 'password': '123456', 'telephone': '13599999999', 'sex': '1', 'address': '深圳市宝安区'}, 'login': {'admin_user': 'wintest', 'admin_pwd': '123456'}, 'update': {'new_password': '123456', 'new_telephone': '13599999998', 'new_sex': '1', 'new_address': '深圳市坪山区'}, 'except_result': False, 'except_code': 4005, 'except_msg': '修改的用户ID不存在'}, 'test_user_register_login_delete_success': {'admin_user': 'wintest', 'admin_pwd': '123456', 'username': '测试test', 'password': '123456', 'telephone': '13599999999', 'sex': '1', 'address': '深圳市宝安区', 'except_result': True, 'except_code': 0, 'except_msg': '删除用户信息成功'}, 'test_user_register_login_delete_fail': {'admin_user': 'wintest4', 'admin_pwd': '123456', 'username': '测试test', 'password': '123456', 'telephone': '13599999999', 'sex': '1', 'address': '深圳市宝安区', 'except_result': False, 'except_code': 3004, 'except_msg': '当前用户不是管理员用户'}} 
+[2020-07-04 19:22:33,799][test_01_get_user_info.py 30][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:33,800][test_01_get_user_info.py 10][INFO]: 步骤1 ==>> 获取所有用户信息
+[2020-07-04 19:22:33,800][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//users
+[2020-07-04 19:22:33,800][rest_client.py 52][INFO]: 接口请求方式 ==>> GET
+[2020-07-04 19:22:33,800][rest_client.py 54][INFO]: 接口请求头 ==>> null
+[2020-07-04 19:22:33,800][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:33,800][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:33,800][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> null
+[2020-07-04 19:22:33,801][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:33,801][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:34,054][test_01_get_user_info.py 48][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:34,054][test_01_get_user_info.py 15][INFO]: 步骤1 ==>> 获取某个用户信息：wintest4
+[2020-07-04 19:22:34,055][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//users/wintest4
+[2020-07-04 19:22:34,055][rest_client.py 52][INFO]: 接口请求方式 ==>> GET
+[2020-07-04 19:22:34,055][rest_client.py 54][INFO]: 接口请求头 ==>> null
+[2020-07-04 19:22:34,055][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:34,055][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:34,055][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> null
+[2020-07-04 19:22:34,055][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:34,055][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:34,144][test_01_get_user_info.py 48][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:34,144][test_01_get_user_info.py 15][INFO]: 步骤1 ==>> 获取某个用户信息：wintest1111
+[2020-07-04 19:22:34,144][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//users/wintest1111
+[2020-07-04 19:22:34,145][rest_client.py 52][INFO]: 接口请求方式 ==>> GET
+[2020-07-04 19:22:34,145][rest_client.py 54][INFO]: 接口请求头 ==>> null
+[2020-07-04 19:22:34,145][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:34,145][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:34,145][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> null
+[2020-07-04 19:22:34,145][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:34,145][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:34,246][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:34,246][conftest.py 29][INFO]: ******************************
+[2020-07-04 19:22:34,247][conftest.py 30][INFO]: 前置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:34,247][conftest.py 82][INFO]: 注册用户操作：清理用户--准备注册新用户
+[2020-07-04 19:22:34,247][conftest.py 83][INFO]: 执行前置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:34,248][test_02_register.py 26][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:34,248][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//register
+[2020-07-04 19:22:34,248][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:34,248][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/json"
+}
+[2020-07-04 19:22:34,248][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:34,248][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:34,248][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> {
+    "username": "测试test",
+    "password": "123456",
+    "sex": "1",
+    "telephone": "13599999999",
+    "address": "深圳市宝安区"
+}
+[2020-07-04 19:22:34,249][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:34,249][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:34,345][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:34,345][conftest.py 35][INFO]: 后置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:34,346][conftest.py 87][INFO]: 注册用户操作：删除注册的用户
+[2020-07-04 19:22:34,346][conftest.py 88][INFO]: 执行后置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:34,347][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:34,348][conftest.py 29][INFO]: ******************************
+[2020-07-04 19:22:34,348][conftest.py 30][INFO]: 前置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:34,348][conftest.py 82][INFO]: 注册用户操作：清理用户--准备注册新用户
+[2020-07-04 19:22:34,348][conftest.py 83][INFO]: 执行前置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:34,349][test_02_register.py 26][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:34,349][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//register
+[2020-07-04 19:22:34,349][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:34,350][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/json"
+}
+[2020-07-04 19:22:34,350][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:34,350][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:34,350][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> {
+    "username": "测试test",
+    "password": "123456",
+    "sex": "3",
+    "telephone": "13599999999",
+    "address": "深圳市宝安区"
+}
+[2020-07-04 19:22:34,350][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:34,350][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:34,412][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:34,412][conftest.py 35][INFO]: 后置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:34,413][conftest.py 87][INFO]: 注册用户操作：删除注册的用户
+[2020-07-04 19:22:34,413][conftest.py 88][INFO]: 执行后置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:34,414][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:34,415][conftest.py 29][INFO]: ******************************
+[2020-07-04 19:22:34,415][conftest.py 30][INFO]: 前置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:34,415][conftest.py 82][INFO]: 注册用户操作：清理用户--准备注册新用户
+[2020-07-04 19:22:34,415][conftest.py 83][INFO]: 执行前置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:34,416][test_02_register.py 26][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:34,416][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//register
+[2020-07-04 19:22:34,416][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:34,416][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/json"
+}
+[2020-07-04 19:22:34,416][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:34,416][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:34,417][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> {
+    "username": "wintest4",
+    "password": "123456",
+    "sex": "1",
+    "telephone": "13599999999",
+    "address": "深圳市宝安区"
+}
+[2020-07-04 19:22:34,417][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:34,417][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:34,477][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:34,477][conftest.py 35][INFO]: 后置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:34,478][conftest.py 87][INFO]: 注册用户操作：删除注册的用户
+[2020-07-04 19:22:34,478][conftest.py 88][INFO]: 执行后置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:34,482][test_03_login.py 26][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:34,482][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//login
+[2020-07-04 19:22:34,482][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:34,482][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+[2020-07-04 19:22:34,482][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:34,482][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> {
+    "username": "wintest",
+    "password": "123456"
+}
+[2020-07-04 19:22:34,482][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> null
+[2020-07-04 19:22:34,482][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:34,482][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:34,559][test_03_login.py 26][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:34,559][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//login
+[2020-07-04 19:22:34,560][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:34,560][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+[2020-07-04 19:22:34,560][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:34,560][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> {
+    "username": "测试test",
+    "password": "123456"
+}
+[2020-07-04 19:22:34,560][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> null
+[2020-07-04 19:22:34,560][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:34,560][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:34,618][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//login
+[2020-07-04 19:22:34,619][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:34,619][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+[2020-07-04 19:22:34,619][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:34,619][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> {
+    "username": "小锋test",
+    "password": "123456"
+}
+[2020-07-04 19:22:34,619][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> null
+[2020-07-04 19:22:34,619][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:34,619][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:34,636][conftest.py 40][INFO]: 前置步骤 ==>> 管理员 小锋test 登录，返回信息 为：123456
+[2020-07-04 19:22:34,918][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:34,919][conftest.py 29][INFO]: ******************************
+[2020-07-04 19:22:34,919][conftest.py 30][INFO]: 前置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:34,919][conftest.py 82][INFO]: 注册用户操作：清理用户--准备注册新用户
+[2020-07-04 19:22:34,919][conftest.py 83][INFO]: 执行前置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:34,920][test_01_register_login_list.py 39][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:34,920][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//register
+[2020-07-04 19:22:34,920][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:34,920][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/json"
+}
+[2020-07-04 19:22:34,920][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:34,920][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:34,920][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> {
+    "username": "测试test",
+    "password": "123456",
+    "sex": "1",
+    "telephone": "13599999999",
+    "address": "深圳市宝安区"
+}
+[2020-07-04 19:22:34,921][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:34,921][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:34,986][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:34,986][conftest.py 35][INFO]: 后置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:34,986][conftest.py 87][INFO]: 注册用户操作：删除注册的用户
+[2020-07-04 19:22:34,986][conftest.py 88][INFO]: 执行后置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:34,990][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:34,991][conftest.py 29][INFO]: ******************************
+[2020-07-04 19:22:34,991][conftest.py 30][INFO]: 前置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:34,991][conftest.py 82][INFO]: 注册用户操作：清理用户--准备注册新用户
+[2020-07-04 19:22:34,991][conftest.py 83][INFO]: 执行前置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:34,991][test_02_register_login_update.py 50][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:34,992][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//register
+[2020-07-04 19:22:34,992][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:34,992][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/json"
+}
+[2020-07-04 19:22:34,992][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:34,992][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:34,992][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> {
+    "username": "测试test",
+    "password": "123456",
+    "sex": "1",
+    "telephone": "13599999999",
+    "address": "深圳市宝安区"
+}
+[2020-07-04 19:22:34,992][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:34,992][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:35,043][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:35,044][conftest.py 35][INFO]: 后置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:35,044][conftest.py 87][INFO]: 注册用户操作：删除注册的用户
+[2020-07-04 19:22:35,044][conftest.py 88][INFO]: 执行后置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:35,046][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:35,046][conftest.py 29][INFO]: ******************************
+[2020-07-04 19:22:35,046][conftest.py 30][INFO]: 前置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:35,046][conftest.py 82][INFO]: 注册用户操作：清理用户--准备注册新用户
+[2020-07-04 19:22:35,046][conftest.py 83][INFO]: 执行前置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:35,047][test_02_register_login_update.py 90][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:35,047][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//register
+[2020-07-04 19:22:35,047][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:35,047][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/json"
+}
+[2020-07-04 19:22:35,048][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:35,048][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:35,048][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> {
+    "username": "测试test",
+    "password": "123456",
+    "sex": "1",
+    "telephone": "13599999999",
+    "address": "深圳市宝安区"
+}
+[2020-07-04 19:22:35,048][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:35,048][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:35,128][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:35,128][conftest.py 35][INFO]: 后置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:35,128][conftest.py 87][INFO]: 注册用户操作：删除注册的用户
+[2020-07-04 19:22:35,128][conftest.py 88][INFO]: 执行后置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:35,133][test_03_register_login_delete.py 44][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:35,133][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//register
+[2020-07-04 19:22:35,133][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:35,133][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/json"
+}
+[2020-07-04 19:22:35,134][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:35,134][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:35,134][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> {
+    "username": "测试test",
+    "password": "123456",
+    "sex": "1",
+    "telephone": "13599999999",
+    "address": "深圳市宝安区"
+}
+[2020-07-04 19:22:35,134][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:35,134][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:35,192][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:35,192][conftest.py 29][INFO]: ******************************
+[2020-07-04 19:22:35,192][conftest.py 30][INFO]: 前置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:35,193][conftest.py 82][INFO]: 注册用户操作：清理用户--准备注册新用户
+[2020-07-04 19:22:35,193][conftest.py 83][INFO]: 执行前置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:35,193][test_03_register_login_delete.py 84][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:35,193][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//register
+[2020-07-04 19:22:35,194][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:35,194][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/json"
+}
+[2020-07-04 19:22:35,194][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:35,194][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:35,194][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> {
+    "username": "测试test",
+    "password": "123456",
+    "sex": "1",
+    "telephone": "13599999999",
+    "address": "深圳市宝安区"
+}
+[2020-07-04 19:22:35,194][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:35,194][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:35,249][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:35,250][conftest.py 35][INFO]: 后置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:35,250][conftest.py 87][INFO]: 注册用户操作：删除注册的用户
+[2020-07-04 19:22:35,250][conftest.py 88][INFO]: 执行后置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:35,253][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:35,254][conftest.py 29][INFO]: ******************************
+[2020-07-04 19:22:35,254][conftest.py 30][INFO]: 前置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:35,254][conftest.py 82][INFO]: 注册用户操作：清理用户--准备注册新用户
+[2020-07-04 19:22:35,254][conftest.py 83][INFO]: 执行前置SQL：DELETE FROM user WHERE username = '测试test'
+[2020-07-04 19:22:35,255][test_04_repeat_register.py 38][INFO]: *************** 开始执行用例 ***************
+[2020-07-04 19:22:35,255][rest_client.py 51][INFO]: 接口请求地址 ==>> http://49.232.9.51:8000/api/register//register
+[2020-07-04 19:22:35,255][rest_client.py 52][INFO]: 接口请求方式 ==>> POST
+[2020-07-04 19:22:35,255][rest_client.py 54][INFO]: 接口请求头 ==>> {
+    "Content-Type": "application/json"
+}
+[2020-07-04 19:22:35,255][rest_client.py 55][INFO]: 接口请求 params 参数 ==>> null
+[2020-07-04 19:22:35,256][rest_client.py 56][INFO]: 接口请求体 test_data 参数 ==>> null
+[2020-07-04 19:22:35,256][rest_client.py 57][INFO]: 接口请求体 json 参数 ==>> {
+    "username": "测试test",
+    "password": "123456",
+    "sex": "1",
+    "telephone": "13599999999",
+    "address": "深圳市宝安区"
+}
+[2020-07-04 19:22:35,256][rest_client.py 58][INFO]: 接口上传附件 files 参数 ==>> None
+[2020-07-04 19:22:35,256][rest_client.py 59][INFO]: 接口 cookies 参数 ==>> null
+[2020-07-04 19:22:35,309][mysql_operate.py 54][INFO]: 操作MySQL出现错误，错误原因：(1146, "Table 'apimysql.user' doesn't exist")
+[2020-07-04 19:22:35,309][conftest.py 35][INFO]: 后置步骤开始 ==>> 清理数据
+[2020-07-04 19:22:35,309][conftest.py 87][INFO]: 注册用户操作：删除注册的用户
+[2020-07-04 19:22:35,309][conftest.py 88][INFO]: 执行后置SQL：DELETE FROM user WHERE username = '测试test'

@@ -21,6 +21,10 @@ pytest 测试报告生成
     pytest-html==1.10.0
 ### 注意点
     修改 "config/setting.ini" 配置文件，在Windows环境下，安装相应依赖之后，在命令行窗口执行命令：pytest
+    若报错：  ImportError while loading conftest 
+    解决办法： 删掉缓存文件夹删除 __pycache__
+    
+    
     生成requirements.txt文件
     pip freeze > requirements.txt
 安装包 pip install -r requirements.txt

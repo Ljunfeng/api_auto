@@ -1,5 +1,5 @@
 import pytest
-from small_FrontalGate.testcases.conftest import api_data
+from testcases.conftest import api_data
 
 
 @pytest.fixture(scope="function")

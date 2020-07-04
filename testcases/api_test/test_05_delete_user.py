@@ -1,8 +1,8 @@
 import pytest
 import allure
-from small_FrontalGate.common.operation.user import delete_user
-from small_FrontalGate.testcases.conftest import api_data
-from small_FrontalGate.common.logger import logger
+from common.operation.user import delete_user
+from testcases.conftest import api_data
+from common.logger import logger
 
 
 @allure.step("步骤1 ==>> 根据用户名来删除用户信息")

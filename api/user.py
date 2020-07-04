@@ -1,6 +1,6 @@
 import os
-from small_FrontalGate.common.core.rest_client import RestClient
-from small_FrontalGate.common.read_data import data
+from common.core.rest_client import RestClient
+from common.read_data import data
 
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 data_file_path = os.path.join(BASE_PATH, "config", "setting.ini")

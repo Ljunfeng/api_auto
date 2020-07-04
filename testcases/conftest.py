@@ -1,10 +1,10 @@
 import pytest
 import os
 import allure
-from small_FrontalGate.api.user import user
-from small_FrontalGate.common.mysql_operate import db
-from small_FrontalGate.common.read_data import data
-from small_FrontalGate.common.logger import logger
+from api.user import user
+from common.mysql_operate import db
+from common.read_data import data
+from common.logger import logger
 
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 print(BASE_PATH)

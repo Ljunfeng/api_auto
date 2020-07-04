@@ -3,9 +3,9 @@ import allure
 import sys
 print(sys.path)
 
-from small_FrontalGate.common.operation.user import login_user
-from small_FrontalGate.testcases.conftest import api_data
-from small_FrontalGate.common.logger import logger
+from common.operation.user import login_user
+from testcases.conftest import api_data
+from common.logger import logger
 
 
 @allure.step("步骤1 ==>> 登录用户")

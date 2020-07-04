@@ -1,6 +1,6 @@
 import requests
 import json as complexjson
-from small_FrontalGate.common.logger import logger
+from common.logger import logger
 
 
 class RestClient():

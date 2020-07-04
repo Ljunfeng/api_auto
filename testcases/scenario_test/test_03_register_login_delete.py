@@ -1,7 +1,7 @@
 import pytest
 import allure
-from small_FrontalGate.common.operation.user import register_user, login_user, delete_user
-from small_FrontalGate.common.logger import logger
+from common.operation.user import register_user, login_user, delete_user
+from common.logger import logger
 
 
 @allure.step("步骤1 ==>> 注册用户")

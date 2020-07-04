@@ -1,7 +1,7 @@
 import yaml
 import json
 from configparser import ConfigParser
-from small_FrontalGate.common.logger import logger
+from common.logger import logger
 
 
 class MyConfigParser(ConfigParser):

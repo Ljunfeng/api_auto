@@ -1,6 +1,6 @@
-from small_FrontalGate.common.core.result_base import ResultBase
-from small_FrontalGate.api.user import user
-from small_FrontalGate.common.logger import logger
+from common.core.result_base import ResultBase
+from api.user import user
+from common.logger import logger
 
 
 def get_all_user_info():
