@@ -3,7 +3,7 @@ import allure
 import sys
 print(sys.path)
 
-from common.operation.user import login_user
+from operation.user import login_user
 from testcases.conftest import api_data
 from common.logger import logger
 
@@ -17,8 +17,6 @@ def step_1(username):
 class TestUserLogin():
 
     @allure.story("用例--登录用户")
-    @allure.issue("https://www.cnblogs.com/wintest", name="点击，跳转到对应BUG的链接地址")
-    @allure.testcase("https://www.cnblogs.com/wintest", name="点击，跳转到对应用例的链接地址")
     @pytest.mark.single
     @pytest.mark.parametrize("username, password, except_result, except_code, except_msg",
                              api_data["test_login_user"])

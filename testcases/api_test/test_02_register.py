@@ -1,6 +1,6 @@
 import pytest
 import allure
-from common.operation.user import register_user
+from operation.user import register_user
 from testcases.conftest import api_data
 from common.logger import logger
 
@@ -16,8 +16,6 @@ def step_1(username, password, telephone, sex, address):
 class TestUserRegister():
     """用户注册"""
     @allure.story("用例--注册用户信息")
-    @allure.issue("https://www.cnblogs.com/wintest", name="点击，跳转到对应BUG的链接地址")
-    @allure.testcase("https://www.cnblogs.com/wintest", name="点击，跳转到对应用例的链接地址")
     @pytest.mark.single
     @pytest.mark.parametrize("username, password, telephone, sex, address, except_result, except_code, except_msg",
                              api_data["test_register_user"])

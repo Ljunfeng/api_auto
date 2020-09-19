@@ -1,6 +1,6 @@
 import pytest
 import allure
-from common.operation.user import update_user
+from operation.user import update_user
 from testcases.conftest import api_data
 from common.logger import logger
 
@@ -21,8 +21,6 @@ def step_login(admin_user, token):
 class TestUpdate():
     """修改用户"""
     @allure.story("用例--修改用户信息")
-    @allure.issue("https://www.cnblogs.com/wintest", name="点击，跳转到对应BUG的链接地址")
-    @allure.testcase("https://www.cnblogs.com/wintest", name="点击，跳转到对应用例的链接地址")
     @pytest.mark.single
     @pytest.mark.parametrize("id, new_password, new_telephone, new_sex, new_address, "
                              "except_result, except_code, except_msg",

@@ -57,7 +57,7 @@ test_user_register_login_update_fail:
   except_msg: "修改的用户ID不存在"
 
 test_user_register_login_delete_success:
-  admin_user: "wintest"
+  admin_user: "admintest"
   admin_pwd: "123456"
   username: "测试test"
   password: "123456"
@@ -69,7 +69,7 @@ test_user_register_login_delete_success:
   except_msg: "删除用户信息成功"
 
 test_user_register_login_delete_fail:
-  admin_user: "wintest4"
+  admin_user: "admintest4"
   admin_pwd: "123456"
   username: "测试test"
   password: "123456"

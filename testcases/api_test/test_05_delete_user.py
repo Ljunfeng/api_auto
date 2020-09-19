@@ -1,6 +1,6 @@
 import pytest
 import allure
-from common.operation.user import delete_user
+from operation.user import delete_user
 from testcases.conftest import api_data
 from common.logger import logger
 
@@ -23,8 +23,6 @@ class TestUserDelete():
 
     @allure.story("用例--删除用户信息")
     @allure.description("该用例是针对获取用户删除接口的测试")
-    @allure.issue("https://www.cnblogs.com/wintest", name="点击，跳转到对应BUG的链接地址")
-    @allure.testcase("https://www.cnblogs.com/wintest", name="点击，跳转到对应用例的链接地址")
     @allure.title("测试数据：【 {username}，{except_result}，{except_code}，{except_msg} 】")
     @pytest.mark.single
     @pytest.mark.parametrize("username, except_result, except_code, except_msg",

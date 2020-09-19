@@ -1,6 +1,6 @@
 import pytest
 import allure
-from common.operation.user import get_all_user_info, get_one_user_info
+from operation.user import get_all_user_info, get_one_user_info
 from testcases.conftest import api_data
 from common.logger import logger
 
@@ -21,8 +21,8 @@ class TestGetUserInfo():
     """获取用户信息模块"""
 
     @allure.story("用例--获取全部用户信息")
-    @allure.issue("https://www.cnblogs.com/wintest", name="点击，跳转到对应BUG的链接地址")
-    @allure.testcase("https://www.cnblogs.com/wintest", name="点击，跳转到对应用例的链接地址")
+    @allure.issue("https://www.xxx", name="点击，跳转到对应BUG的链接地址")
+    @allure.testcase("https://www.xxx", name="点击，跳转到禅道用例的链接地址")
     @pytest.mark.single
     @pytest.mark.parametrize("except_result, except_code, except_msg",
                              api_data["test_get_all_user_info"])
@@ -39,8 +39,6 @@ class TestGetUserInfo():
         logger.info("*************** 结束执行用例 ***************")
 
     @allure.story("用例--获取某个用户信息")
-    @allure.issue("https://www.cnblogs.com/wintest", name="点击，跳转到对应BUG的链接地址")
-    @allure.testcase("https://www.cnblogs.com/wintest", name="点击，跳转到对应用例的链接地址")
     @pytest.mark.single
     @pytest.mark.parametrize("username, except_result, except_code, except_msg",
                              api_data["test_get_get_one_user_info"])
